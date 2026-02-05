@@ -1,0 +1,43 @@
+body {
+  background: rgb(14, 0, 0);
+  color: #ff0000;
+  font-family: "Courier New", monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.terminal {
+  border: 1px solid #ff0000;
+  padding: 20px;
+  width: 420px;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 255, 156, 0.03),
+    rgba(0, 255, 156, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+.denied {
+  color: red;
+  animation: flicker 0.2s 3;
+}
+
+@keyframes flicker {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}

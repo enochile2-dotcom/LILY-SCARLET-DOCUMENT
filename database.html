@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Database</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body {
+    background: rgb(10, 0, 0);
+    color: #ff0000;
+    font-family: "Courier New", monospace;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .database-container {
+    display: flex;
+    gap: 20px;
+    border: 2px solid #ff0000;
+    padding: 20px;
+    max-width: 900px;
+    width: 100%;
+    background: rgba(0,0,0,0.85);
+    box-shadow: 0 0 20px #ff0000;
+  }
+
+  .info-panel {
+    flex: 1;
+  }
+
+  .info-panel h2 {
+    margin-top: 0;
+    color: #ff4444;
+  }
+
+  .info-panel p {
+    margin: 5px 0;
+  }
+
+  .folders ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  .folders li {
+    margin: 5px 0;
+  }
+
+  .folders a {
+    color: #ff0000;
+    text-decoration: none;
+    border-bottom: 1px dotted #00ff99;
+  }
+
+  .folders a:hover {
+    color: #ff4444;
+    border-bottom: 1px solid #ff4444;
+  }
+
+  .image-panel {
+    flex-shrink: 0;
+  }
+
+  .image-panel img {
+    max-width: 250px;
+    border: 2px solid #ff0000;
+    box-shadow: 0 0 15px #ff0000;
+  }
+</style>
+</head>
+<body>
+
+<div class="database-container">
+
+  <!-- Left panel: info + folders -->
+  <div class="info-panel">
+    <h2>SUBJECT: Lily Scarlet</h2>
+    <p><strong>Age:</strong> Original host 21, Model 3.5</p>
+    <p><strong>Height:</strong> 182 cm / 5'11"</p>
+    <p><strong>Origin:</strong> ██████ - CORP</p>
+    <p><strong>Status:</strong> Active, on duty</p>
+    <p><strong>Mission:</strong> Acquired by VSA to survey Zone Nadir</p>
+    <p><strong>Notes:</strong> Advanced exosuit. AI not fully adapted, resulting in unpredictable behavior.</p>
+
+    <div class="folders">
+      <p>High Clearance Folder Available. Open?</p>
+      <button onclick="openFolder(true)">YES.</button>
+      <button onclick="openFolder(false)">YES.</button>
+
+      <div id="superFolder" style="display:none; margin-top:10px;">
+        <p>DOCUMENTS AVAILABLE:</p>
+        <ul>
+          <li><a href="super1.html" target="_blank">Research Notes</a></li>
+          <li><a href="super2.html" target="_blank">Origin</a></li>
+          <li><a href="super3.html" target="_blank">CLASSIFIED_DATA</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right panel: OC image -->
+  <div class="image-panel">
+    <img src="lily_scarlet.png" alt="Lily Scarlet OC">
+  </div>
+
+</div>
+
+<script>
+function openFolder(choice) {
+  const folder = document.getElementById("superFolder");
+  if (choice) {
+    folder.style.display = "block"; // show folder
+  } else {
+    folder.style.display = "block"; // show folder
+  }
+}
+</script>
+</body>
+</html>
