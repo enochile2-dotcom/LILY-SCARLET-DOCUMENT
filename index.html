@@ -9,7 +9,7 @@
 <body>
 <div class="terminal">
   <p>███ SECURE ARCHIVE TERMINAL ███</p>
-  <pre id="boot"></pre> <!-- use <pre> to preserve line breaks -->
+  <pre id="boot"></pre>
 
   <div id="login" style="display:none;">
     <p>ENTER ACCESS CODE:</p>
@@ -41,12 +41,13 @@ function typeBoot() {
       char++;
       setTimeout(typeBoot, 30);
     } else {
-      bootEl.textContent += "\n";
+      bootEl.textContent += "\n"; // <pre> preserves line breaks
       line++;
       char = 0;
       setTimeout(typeBoot, 400);
     }
   } else {
+    // Boot complete, show login
     loginEl.style.display = "block";
   }
 }
@@ -57,14 +58,14 @@ function checkPassword() {
   const input = document.getElementById("password");
   const message = document.getElementById("message");
 
-  message.className = ""; // reset class
+  message.className = ""; // reset any previous class
   message.textContent = "VERIFYING...";
 
   setTimeout(() => {
-    if (input.value === "LILYSCARLET") {
+    if (input.value.trim() === "LILYSCARLET") {
       message.textContent = "ACCESS GRANTED";
       setTimeout(() => {
-        window.location.href = "database.html";
+        window.location.href = "database.html"; // redirect
       }, 1000);
     } else {
       message.textContent = "ACCESS DENIED";
