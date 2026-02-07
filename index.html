@@ -9,7 +9,7 @@
 <body>
 <div class="terminal">
   <p>███ SECURE ARCHIVE TERMINAL ███</p>
-  <p id="boot"></p>
+  <pre id="boot"></pre> <!-- use <pre> to preserve line breaks -->
 
   <div id="login" style="display:none;">
     <p>ENTER ACCESS CODE:</p>
@@ -24,12 +24,13 @@
 const bootText = [
   "INITIALIZING SECURE ARCHIVE...",
   "CHECKING SYSTEM INTEGRITY...",
-  "LOADING █████████ ████████████...",
+  "LOADING CLEARANCE PROTOCOLS...",
   "READY."
 ];
 
 let line = 0;
 let char = 0;
+
 const bootEl = document.getElementById("boot");
 const loginEl = document.getElementById("login");
 
@@ -56,13 +57,14 @@ function checkPassword() {
   const input = document.getElementById("password");
   const message = document.getElementById("message");
 
+  message.className = ""; // reset class
   message.textContent = "VERIFYING...";
 
   setTimeout(() => {
-    if (input.value === "CLEARANCE-3") {
+    if (input.value === "LILYSCARLET") {
       message.textContent = "ACCESS GRANTED";
       setTimeout(() => {
-        window.location.href = "database.html"; // redirect here
+        window.location.href = "database.html";
       }, 1000);
     } else {
       message.textContent = "ACCESS DENIED";
