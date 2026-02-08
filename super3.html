@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WORK IN PROGRESS</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="terminal">
+  <p>WORK IN PROGRESS</p>
+  <pre id="boot"></pre>
+
+  <div id="login" style="display:none;">
+    <p>Hai, this page is work in progress because im kinda lazy!! ill make it soon enough..</p>
+    <input type="password" id="password">
+    <br><br>
+    <button onclick="checkPassword()">CONFIRM</button>
+    <p id="message"></p>
+  </div>
+</div>
+
+<script>
+const bootText = [
+  "BREACHING_D4TA...",
+  "INITIALIZING...",
+  "LOADING CLEARANCE PROTOCOLS...",
+  "READY."
+];
+
+let line = 0;
+let char = 0;
+
+const bootEl = document.getElementById("boot");
+const loginEl = document.getElementById("login");
+
+function typeBoot() {
+  if (line < bootText.length) {
+    if (char < bootText[line].length) {
+      bootEl.textContent += bootText[line][char];
+      char++;
+      setTimeout(typeBoot, 30);
+    } else {
+      bootEl.textContent += "\n"; // <pre> preserves line breaks
+      line++;
+      char = 0;
+      setTimeout(typeBoot, 400);
+    }
+  } else {
+    // Boot complete, show login
+    loginEl.style.display = "block";
+  }
+}
+
+typeBoot();
+
+function checkPassword() {
+  const input = document.getElementById("password");
+  const message = document.getElementById("message");
+
+  message.className = ""; // reset any previous class
+  message.textContent = "VERIFYING...";
+
+  setTimeout(() => {
+    if (input.value.trim() === "98320598120498124091824081q24098") {
+      message.textContent = "ACCESS DENIED";
+      message.className = "denied";
+    } else {
+      message.textContent = "ACCESS DENIED";
+      message.className = "denied";
+    }
+  }, 1200);
+}
+</script>
+</body>
+</html>
